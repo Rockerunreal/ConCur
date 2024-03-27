@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrIstMos - magic money transfer</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: rgb(229 229 226);
+    --text-color:  rgb(46 44 44);
+  }
+      }
+ /* .geo_txt, .client_txt{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
+  */
+  *{
+    font-family: 'Montserrat', sans-serif;;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+    --background-color: rgb(229 229 226);
+    --text-color: rgb(46 44 44);
+  }
+}
+        html{
+            max-width: 100vw;
+        }
+        body{
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: rgb(244, 244, 244);
+            max-width: 100vw;
+            margin: 0;
+            max-width: 100vw;
+           
+        }
+        .main_block{
+            display: flex;
+            
+        }
+        
+        .calc_n_lock{
+            
+            
+            max-width: 45vw;
+            
+            margin-top: 5vh;
+        }
+        .calc_panel{
+            border-radius: 0 6vh 6vh 0;
+            background: linear-gradient(rgb(77, 77, 77), black);;
+            height: 100vh;
+            width: 40vw;
+            color: rgb(255, 255, 255);
+            flex-direction: column;
+            
+        }
+        .calc_pic{
+           margin-top: 4vh;
+           width: 10vw;
+           margin-left: 5vw;
+            
+        }
+        .calc_win{
+            margin-top: 3vh;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            width: 25vw;
+            margin-left: 5vw;
+            border-radius: 2vh;
+            text-align: center;
+            flex-direction: column;
+            margin-bottom: 5vh;
+            height: 75vh;
+            display: flex;
+            justify-content: space-around;
+        }
+        .transition{
+            
+            margin-left: -10px;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            text-align: start; 
+            margin-left: 1vw; 
+            margin-bottom: -2vh;
+            font-weight: bold;
+            
+            
+            
+        }
+        .Val_out{
+            
+            height: 8%;
+            margin-left: 3vw;
+           
+            width: 75%;
+            border-radius: 5px;
+            border-color:black;
+            border-width: 2px;
+            font-size: 2vh;
+            
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@1&family=Roboto:wght@800&display=swap');
+        .calc_txt{
+            font-family: 'Roboto', sans-serif;
+            font-size: 2vh;
+            
+        }
+        .send_button{
+            width: 15vw;
+        }
+        .calc_pic_mmt{
+            width: 9vw;
+            position:absolute;
+            right: 0;
+            margin-right: 73vw;
+            margin-top: 4vh;
+            
+        }
+        
+        .nav{
+            flex-direction: row;
+        }
+        .t_icon{
+            width:2vw;
+            margin-left: 5vh;
+        }
+        .t_num{
+            width: 16vw;
+            margin-bottom: 5px;
+        }
+        .logo{
+            width:10vw;
+            margin-left: 5vw;
+        }
+        .logo_t{
+            width: 9vw;
+        }
+        .line{
+            width: 5vw;
+            margin-bottom: 5px;
+            margin-left: 5vw;
+        }
+        .geo_pic{
+            width: 22vw;
+            
+            margin-top: 15px;
+        }
+        .arrow{
+            width: 50px;
+            border-radius: 5px;
+            margin-top: -30px;
+            margin-left: 155px;
+        }
+        .geo_txt{
+            width: 20vw;
+            margin-left: 8vw;
+            margin-top: 8vh;
+            font-size: 6vh;
+        }
+        .map{
+            width: 20vw;
+            margin-left: 15px;
+            margin-top: 15px;
+            color: var(--text-color);
+            font-size: 2vh;
+        }
+        .point{
+            width: 2vw;
+            margin-left: 1vw;
+            margin-bottom: -1.5vh;
+        }
+        .adress{
+            padding-bottom: 30px;
+            font-size: 2vh;
+            width: 200px;
+            color: var(--text-color);
+        }
+        .line-2{
+            width:4vw;
+            margin-left: 10vw;
+        }
+        .geo_video{
+            width: 300px;
+            height: 300px;
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+        .client_txt{
+            width: 25vw;
+            margin-left: 12vw;
+            margin-top: 3vh;
+            font-size: 2vh;
+        }
+        .cl_txt_1{
+            margin-top: 18vh;
+            margin-left: 5vw;
+            position: absolute;
+            width: 20vw;
+            color: var(--text-color);
+        }
+        .cl_txt_2{
+            margin-top: 32vh;
+            margin-left: 3vw;
+            position: absolute;
+            width: 17vw;
+            color: var(--text-color);
+            font-size: 2vh;
+        }
+        .team{
+            flex-direction: row;
+            justify-content: space-around;
+            width: 330px;
+            margin:auto
+        }
+        .wkr_1{
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+        .wkr_2{
+            width: 150px;
+            margin-left: 5px;
+        }
+        .wkr_3{
+            width: 80px;
+            margin-left: 5px;
+        }
+        .wkr_desc{
+            width: 150px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .wkr_desc1{
+            width: 150px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .geo{
+            border-radius: 20px;
+            height: auto;
+            width: 360px;
+            flex-direction: column;
+            margin: auto;
+        }
+        .tre{
+            width: 150px;
+        }
+        .commit{
+            margin-top: 20px;
+            width: 150px;
+            margin-left: 20px;
+        }
+        .partner{
+            border-radius: 20px;
+            background: linear-gradient(rgb(77, 77, 77), black);
+            height: auto;
+            width: 95vw;
+            color: rgb(255, 255, 255);
+            flex-direction: column;
+            margin: auto;
+            margin-top: 80px;
+            
+            
+        }
+        .part_pic{
+            width: 20vw;
+            margin-top: 20px;
+            margin-left: 35px;
+        }
+        
+        button{
+            width: 5vh;
+            height: 5vh;
+            border-radius: 2.5vh;
+            background-image:" sync_alt_FILL0_wght400_GRAD0_opsz24.png";
+            background-color: #39f1b2;
+            background-repeat:no-repeat;
+background-size:contain;
+background-position:center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .convert_result{
+            display: inline-block;
+            width: fit-content;
+            font-size: 2vh;
+        }
+        .convert{
+            display: inline-block;
+            width: fit-content;
+            font-size: 2vh;
+        }
+        .tr_txt{
+            margin-left: 2vw;
+            font-size: 2vh;
+        }
+        .block{
+            display: inline-block;
+            max-width: 28vw;
+            margin-left: 3vw;
+            overflow: hidden;
+        }
+        .cl_block1{
+            display: inline-block;
+            margin-left: 2vw;
+            
+        }
+        .clients{
+            margin-left: 2vw;
+        }
+	.chan{
+	    width:100%;
+	    height:100%;
+	}
+
+    </style>
+</head>
+<body>
+    <header  style="width: 100vw; margin-left: 1vw; margin-top: 2vh;">
+        <div style="display: inline-block; margin-bottom: 2vh; margin-left: 0vw;">
+        <div style="display: inline-block; width: 6vw; height: 2.5vw; background-color: black; border-radius: 1.5vh; color: aliceblue;" >
+            <a href="http://127.0.0.1:8000/tyr/"><img src="./RU/Group_35.png" style="border-radius: 1vh; width: 2.5vw; margin-top: 0.7vh; margin-left: 0.6vh; margin-bottom: 0;"></a>
+        <a href="http://94.103.88.175"><img src="./RU/Group_36.png" style="border-radius: 1vh; width: 2.5vw; margin-top: 0.7vh; margin-left: 0;"></a>
+        </div>
+    </div>
+    
+    <a href="tel:+905354436509" style="margin-left: 2vw;">
+        <img src="./RU/2b61d242-f14c-445a-a.png" alt="" class="t_icon">
+        <img src="./RU/a1d1239f-b99f-4327-8.png" alt="" class="t_num">
+    </a>
+        <img src="./RU/8ffe5104-5117-4e7a-9.png" class="line" >
+        <img src="./RU/e345f660-f161-4f4b-a.png" alt="" class="logo" style="margin-left: 36vw;">
+        <img src="./RU/Groupfewf_39.png" class="logo_t" style="margin-left: 3vw;">
+        
+        
+        
+    </div>
+</header>
+<div class="main_block">
+    <div class="calc_n_lock" style="display: inline-block; max-width: 40vw;">
+        <div class='calc_panel'>
+            <div class="ph_calc">
+                <img src="./RU/CrfewfIstMos.png" class = 'calc_pic'>
+                <img src="./RU/1078505b-d58f-42b6-a.png" class = 'calc_pic_mmt'>
+                <div class="geo_txt" style=" font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5vh; color: rgb(255, 254, 254); margin-left: 5vw; min-width: 20vw; line-height: 4vh; margin-top: 3vh;" ><a>Dünya çapında para transferleri</a></div>
+                
+                
+            </div>
+            <div class="calc_win">
+                <div class = 'transition'>
+                    <a class="tr_txt">Transfer tutarı:</a>
+                </div>
+                
+                    <input type="number" id="val" class="Val_out" placeholder="Miktari girin"/>
+                    <div class = 'transition'>
+                        <a class="tr_txt">Gönderim para birimi:</a>
+                    </div>
+                    <select id="cur1" class="Val_out">
+                        <option>USD</option>
+                        <option>TRY</option>
+                        <option>RUB</option>
+                    </select>
+                    
+                        <button id="exchange">
+                            <img class="chan" src="./RU/swap_vert_FILL0_wght400_GRAD0_opsz24.svg">
+                            
+                        </button>
+                        
+                    <div class = 'transition'>
+                        <a class="tr_txt">Makbuz para birimi:</a>
+                    </div>
+                
+                    <select id="cur2" class="Val_out">
+                        <option>RUB</option>
+                        <option>TRY</option>
+                        <option>USD</option>
+                        
+                    </select>
+                
+                
+                <div class="calc_txt" style="text-align: start; margin-left: 3vw; margin-bottom: -15px;">Toplamda şunları alacaksınız:</div>
+                <div class="convert_result1" style="text-align: start; margin-left: 3vw; display:inline-block;">
+                    <div class="convert_result">0</div>
+                    <div class="convert" id="convert_result"></div> 
+                </div>
+                <div class="calc_txt" style="font-weight: bold; margin-bottom: -15px; font-size: 2vh;">En iyi kursu mu istiyorsunuz?</div>
+                <div class="calc_txt" style="font-size: 2.3vh">operatöre yaz!</div>
+                <div>
+                    <a href="https://t.me/MoneyCrIstmos"><img class="send_button" href="tel:+905354436509" src="./RU/Group_26.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block" style="display: block; width: 30vw; justify-content: space-aroundQ; height: 100vh; margin-top: 15wh;">
+    
+    <a style="line-height: 42px; font-family: 'Montserrat'; font-weight: 700; font-size: 3.5vh; color: rgb(52, 51, 51);  margin-left: 1vw; margin-bottom: 3vh;">Bizi nasıl bulabilirsiniz?</a>
+    <a href="https://www.google.com/maps/place/Kemankeş+Karamustafa+Paşa,+CrIstMos,+Halilpaşa+Sk.,+34425+Mаh%2Fİstanbul,+Türkiye/data=!4m2!3m1!1s0x14cab9d8234aef4b:0x8865a2facae68db8?utm_source=mstt_1&entry=gps&lucs=karto&g_ep=CAESCTExLjYwLjcwMxgAIIgnKgVrYXJ0b0ICUlU%3D">
+        <img src="./RU/2024-02-13_11-32-05.png" class="map" style="display: block; width: 22vw;">
+    </a>
+    
+    <img src="./RU/826313c5-f53c-4e47-9.png" class="point" >
+    <a class="adress">Adress:</a>
+    <img src="./RU/ed68e408-904b-4358-a.png" class="line-2">
+    <div class="map"><a>Kemankeş, Karamustafa Paşa Mаh. Halilpaşa Sk. No:14 İç  kapı No:19 Beyoğlu/İstanbul</a></div>
+    <img class="map" src="./RU/2024-02-13_11-34-24.png" style="border-radius: 15px; display: block; width: 37vh;"> 
+    </div> 
+    <div class="block">
+        <img src="./RU/3ca6485f-7b20-4f43-b.png" style="width: 100vh; margin-top: 5vh;">
+    </div>
+</div>
+
+    <div class="calc_n_lock" style="display: inline-block; margin-left: 0;">
+        
+            <div class="calc_n_lock" style="display: inline-block;">
+                <div class="clients">
+                    <div class="geo_txt" style="line-height: 42px; font-family: 'Montserrat'; font-weight: 700; color: rgb(52, 51, 51); margin-left: 40px; font-style: normal; margin-left: 37vw; margin-top: 10vh; width:30vw;" >Müşterilerimiz</div>
+
+        <div class="client_txt" style="min-width: 50vw; margin-left: 5vw; margin-left: 36vw; margin-bottom: 5vh;"><a>Hem basit hem de karmaşık sorunları çözüyoruz</a></div>
+        <div class="main_block">
+        <div class="cl_block1">
+            <div class="cl_txt_1" style="line-height: 3.5vh; font-family: 'Montserrat'; font-weight: 300; font-size: 2.5vh; color: rgb(52, 51, 51); margin-left: 3vw; font-style: normal; max-width: 15vw;">Türkiye'deki kafeler, restoranlar, oteller, klinikler</div>
+            
+            <div class="cl_txt_2" style="color: black;">Para transferleri, Rus kartlarıyla ödeme kabul organizasyonu</div>
+            <img src="./RU/image.png" class="geo_pic" style="height: 90vh;">
+        </div>
+        <div class="cl_block1">
+            <div class="cl_txt_1" style="line-height: 3.5vh; font-family: 'Montserrat'; font-weight: 300; font-size: 2.5vh; color: rgb(52, 51, 51); margin-left: 3vw; font-style: normal; max-width: 15vw;">Türkiye'deki fabrikalar, mağazalar</div>
+            <div class="cl_txt_2" style="color: black;">Faktoring, işletme kredileri</div>
+            <img src="./RU/image2.png" class="geo_pic" style="height: 90vh;">
+        </div>
+        <div class="cl_block1">
+            <div class="cl_txt_1" style="line-height: 3.5vh; font-family: 'Montserrat'; font-weight: 300; font-size: 2.5vh; color: rgb(52, 51, 51); margin-left: 3vw; font-style: normal; max-width: 15vw;">Pazar yeri sağlayıcıları</div>
+            <div class="cl_txt_2" style="color: black;">Para transferleri, tedarikçilerle anlaşmalar, İstanbul temsilciliği</div>
+            <img src="./RU/image3.png" class="geo_pic" style="height: 90vh;">
+        </div>
+        <div class="cl_block1">
+            <div class="cl_txt_1" style="line-height: 3.5vh; font-family: 'Montserrat'; font-weight: 300; font-size: 2.5vh; color: rgb(52, 51, 51); margin-left: 3vw; font-style: normal; max-width: 15vw;">Тuristler</div>
+            <div class="cl_txt_2" style="color: black;">Para transferleri, mağazalarda alışveriş, yardım ve tavsiye</div>
+            <img src="./RU/photo.png" class="geo_pic" style="height: 90vh;">
+        </div>
+    </div>
+</div>
+    </div>
+    <div  style="font-size: 6vh; margin: 10vh; margin-left: 40vw; width: 30vw;">
+        Takım 
+        <span style="color: rgb(57, 202, 149); font-size: 6vh;">«А»</span>
+    </div>
+    
+    <div class="main_block">
+        <div style="display: inline-block; width: 20vw; margin-left: 3vw;">
+        <img src="./RU/209ecd6c-a9b9-4226-b.png" style="height: 50vh;">
+        <div class="wkr_1" field="tn_text_1704945711129" style="line-height: 37px; font-size: 5vh; margin-left: 0px; width: 20vw; display:inline-block;"><span style="color: rgb(57, 202, 149);">A</span>lexander</div>
+        <div class="geo_txt" style="font-size: 2.5vh; margin-left: 0px; width:20vw; display:inline-block; margin-top: 3vw; margin-bottom: 5vm; line-height: 5vh;">
+           
+            <li>CEO</li>
+            <li>B2B. Yüksek miktarlı işlemler</li>
+            <li>Rus kartıyla ödeme hizmeti</li>
+            
+        </div>
+        </div>
+        <div style="display: inline-block; width: 20vw; margin-left: 3vw;">
+            <img src="./RU/0a47fd89-be63-483b-b.png" style="height: 50vh;">
+            <div class="wkr_1" field="tn_text_1704945711129" style="line-height: 37px; font-size: 5vh; margin-left: 20; width: 20vw; display:inline-block;"><span style="color: rgb(57, 202, 149);">A</span>sem</div>
+            <div class="geo_txt" style="font-size: 2.5vh; margin-left: 0px; width:20vw; display:inline-block; margin-top: 3vw; margin-bottom: 5vm; line-height: 5vh;">
+               
+                <li>BDT yönü</li>
+                <li>Para transferleri ve döviz bozdurma</li>
+            </div>
+        </div>
+        <div style="display: inline-block; width: 20vw; margin-left: 3vw;">
+            <img src="./RU/1c23239e-ec8b-456c-8.png" style="height: 50vh;">
+            <div class="wkr_1" field="tn_text_1704945711129" style="line-height: 37px; font-size: 5vh; margin-left: 0px; width: 20vw; display:inline-block;"><span style="color: rgb(57, 202, 149);">A</span>slan</div>
+            <div class="geo_txt" style="font-size: 2.5vh; margin-left: 0px; width:20vw; display:inline-block; margin-top: 3vw; margin-bottom: 5vm; line-height: 5vh;">
+               
+                <li>B2b yönü</li>
+                <li>Pazar yeri sağlayıcıları, mağazalar, fabrikalar</li>
+            </div>
+        </div>
+        <div style="display: inline-block; width: 20vw; margin-left: 3vw;">
+            <img src="./RU/85477cae-bbc4-4049-9.png" style="height: 50vh;">
+            <div class="wkr_1" field="tn_text_1704945711129" style="line-height: 37px; font-size: 5vh; margin-left: 0px; width: 20vw; display:inline-block;"><span style="color: rgb(57, 202, 149);">A</span>ygul</div>
+            <div class="geo_txt" style="font-size: 2.5vh; margin-left: 0px; width:20vw; display:inline-block; margin-top: 3vw; margin-bottom: 5vm; line-height: 5vh;">
+               
+                <li>Karaköy ofisi. Para transferleri</li>
+                <li>Koronapay, RIA, Well send</li>
+            </div>
+    </div>
+    
+</div>
+<div class="geo_txt" style="margin-bottom: 6vh; line-height: 42px; font-family: 'Montserrat'; font-weight: 700; font-size: 5vh; color: rgb(52, 51, 51); margin-left: 40px; font-style: normal; margin-left: 42vw; margin-top: 10vh;" >Yourmlar</div>
+<div class="main_block">
+    <div style="width: 25vw; height: 60vh; border-radius: 30px; align-items: center; background: linear-gradient(rgb(98, 98, 98), rgb(26, 26, 26)); margin-left: 10vw;"><a href="https://www.youtube.com/watch?v=nqlEb_qFrvw&embeds_referring_euri=https%3A%2F%2Fcristmos.finance%2F&source_ve_path=Mjg2NjY&feature=emb_logo"><img src="./RU/2024-02-12_10-36-57.png" style="border-radius: 20px; height: 50vh; display: inline-block; margin-left: 2vw; margin-top: 4vh; margin-right: 2vw;"></a></div>
+   <div style="width: 25vw; height: 60vh; border-radius: 30px; align-items: center; background: linear-gradient(rgb(98, 98, 98), rgb(26, 26, 26)); margin-left: 7vw;"><img src="./RU/2024-02-12_10-38-17.png" onclick="window.location='https://www.youtube.com/watch?v=UgEGz3NLFUo&embeds_referring_euri=https%3A%2F%2Fcristmos.finance%2F&source_ve_path=Mjg2NjY&feature=emb_logo';" style="border-radius: 20px; height: 50vh; display: inline-block; margin-left: 2vw; margin-top: 4vh; margin-right: 2vw;"></div>
+   <div style="width: 25vw; height: 60vh; border-radius: 30px; align-items: center; background: linear-gradient(rgb(98, 98, 98), rgb(26, 26, 26)); margin-left: 7vw;"><img src="./RU/2024-02-12_10-45-46.png" onclick="window.location='https://www.youtube.com/watch?v=TOjiFWtQU6A';" style="border-radius: 20px; height: 50vh; display: inline-block; margin-left: 2vw; margin-top: 4vh; margin-right: 2vw;"></div>
+    
+</div>
+<div class="partner" style="margin-top: 10vh; margin-left: 2vw;">
+    <div style="min-width: 90vw;"><img src="./RU/ed68e408-904b-4358-a.png" style="max-width: 100px; margin-left: 40vw" class="part_pic"></div>
+    <img src="./RU/0bc25309-e856-45ab-8.png" class="part_pic" style="margin-left: 5vw; display: inline-block; ">
+    <div style="height: 20vh; width: 38vw; display: inline-block; text-align: center; vertical-align: middle; margin-top: -60px;"> 
+        <a style="height: 38vh; width: 40vw; text-align: center; vertical-align: middle; line-height: 70px; font-size: 7.5vh;">Biz ortağız</a>
+    </div>
+    <img src="./RU/79734a29-d859-4244-9.png" class="part_pic" style="margin-left: 5vw; display: inline-block; ">
+    <img src="./RU/b360a11a-c7a8-4c84-9.png" class="part_pic" style="margin-left: 5vw; display: inline-block; ">
+    <img src="./RU/fb749bee-18d0-439e-8.png" class="part_pic" style="margin-left: 1vw; display: inline-block; ">
+    <img src="./RU/9546c95d-70f8-4de5-8.png" class="part_pic" style="margin-left: 1vw; display: inline-block; ">
+    <img src="./RU/b4c75cc6-3fcf-4c82-8.png" class="part_pic" style="margin-left: 1vw; display: inline-block; ">
+    <img src="./RU/078df818-8dee-43ad-a.png" style="width:10vw; margin-left: 5vw; margin-top: 5vh;" class="part_pic">
+    <div style="width: 24vw; display: inline-block; margin-left: 3vw; height: 200px; text-align: center; vertical-align: middle; line-height: 4vh; font-size: 2vh;">
+        <li >Türkiye Merkez Bankası'na kayıtlıyız</li>
+        <div style="line-height: 3vh; margin-top: 5vh; font-size: 2vh; ">Lisans numarası: 8833400309</div>
+            
+       
+    </div>
+    <div style="width: 20vw; display: inline-block; margin-left: 3vw; height: 200px; text-align: center; vertical-align: middle; line-height: 4vh; font-size: 2vh;">
+        <li>Türkiye'de resmi bir şirketiz - <a href="https://drive.google.com/file/d/1QnZM4w_eUvDbhf7ijO5JbbCC_VlHFyD4/view?usp=sharing" style="color: rgb(57, 202, 149);" target="_blank" rel="noreferrer noopener"><strong><u>detaylarımız</u></strong></a></li>
+    </div>
+    <div style="width: 20vw; display: inline-block; margin-left: 3vw; height: 200px; text-align: center; vertical-align: middle; line-height: 4vh; font-size: 2vh;">
+        <li>Biz İstanbulda rusça konuşan, <a href="https://t.me/businesscity_istanbul" style="color: rgb(57, 202, 149);" target="_blank" rel="noreferrer noopener"><strong><u>ticari bir topluluğun</u></strong></a> ortağıyız</li>
+    </div>
+    <div style="text-align: center; font-size: 30px; line-height: 3vh; font-size: 2vh;"> 
+        <a style="max-width:70px;">Mali tavsiyeye mi ihtiyacınız var?</a> 
+        
+    </div>
+    <div style="text-align: center; margin-top: 2vh; font-size: 4vh; font-size: 2vh;"> 
+        
+        <strong>Bir uzmana soru sorun</strong>
+    </div>
+    <a href="https://t.me/MoneyCrIstmos"><img src="./RU/4320e56c-f3ef-49ff-b.png" alt="" class="send_button" style="margin-top: 20px; margin-left: 37vw; margin-bottom: 20px; width: 20vw;"></a>
+</div>
+    <div style="display: flex; width: 90vw; margin-left: 5vw;">
+        <div class="g" style="display: inline-block; width: 30vw;"><img src="./RU/e345f660-f161-4f4b-a.png" style="width: 15vw;  display: inline-block;"> 
+        <img src="./RU/Groupfewf_39.png" style="width: 10vw; margin-left: 20px; margin-top: 60px; display: inline-block;">
+    </div>
+        <div class="g" style="display: inline-block; width: 30vw;"><span style="text-align: center; min-width: 300px; margin-top: 10vh; display: inline-block; margin-left: 5vw; font-size: 2vh;">Gizlilik Politikası</span>
+    <span style="text-align: center; min-width: 300px; margin-top: 10px; display: inline-block; margin-left: 5vw; font-size: 1.5vh;">Sözleşme teklifi</span>
+</div>
+        <div class="g" style="display: inline-block; width: 30vw;">
+            <img src="./RU/2b61d242-f14c-445a-a.png" alt="" class="t_icon" style="margin-left: 60px; margin-top: 20px;">
+    <img src="./RU/a1d1239f-b99f-4327-8.png" alt="" class="t_num" style="margin-top: 12vh;">
+        </div>
+    </div>
+        
+
+    
+    
+    
+    
+    <span style="text-align: center; min-width: 300px; margin-top: 40px; display: inline-block; margin-left: 39vw; font-size: 12px; color: rgb(114, 112, 112);">2023 ©. Tüm site hakları saklıdır</span>
+    
+    <script>
+        // if (window.innerWidth > 500){
+        //     location.href = 'https://metanit.com/python/fastapi/1.3.php'
+        // }
+        window.onload = function () {
+        let c = {'USD-TRY': '{{ val2 }}', 'USD-RUB': '{{ val1 }}', 'TRY-USD': '{{ val3 }}', 'TRY-RUB': '{{ val4 }}', 'RUB-TRY': '{{ val5 }}', 'RUB-USD': '{{ val6 }}'}; // Устанавливаем курс валют
+    
+        let val = document.getElementById('val'); // Получаем элемент ввода данных
+        let currency1 = document.getElementById('cur1'); // Получаем первый селект
+        let currency2 = document.getElementById('cur2'); // Получаем второй селект
+        let result = document.getElementsByClassName('convert_result')[0]; // Получаем поле куда будем писать результат
+        let but = document.getElementById('myspan');
+        let v = document.getElementById('convert_result')
+        v.innerHTML = currency2.value;
+        function summ() { // Делаем функцию
+            
+            if (currency1.value == "RUB" && currency2.value == "TRY"){
+                result.innerText = Math.round(parseFloat((val.value) * c['RUB-TRY']) * 100000) / 100000;
+            }
+            if (currency1.value == 'RUB' && currency2.value == 'USD'){
+                result.innerText = Math.round(parseFloat((val.value) * c['RUB-USD']) * 100000) / 100000 ;
+            }
+            if (currency1.value == "TRY" && currency2.value == "RUB"){
+                result.innerText = Math.round(parseFloat((val.value) * c["TRY-RUB"] ) * 100000) / 100000;
+            }
+            if (currency1.value == "TRY" && currency2.value == "USD"){
+                result.innerText = Math.round(parseFloat((val.value) * c["TRY-USD"]) * 100000) / 100000 ;
+            }
+            if (currency1.value == "USD" && currency2.value == "RUB"){
+                result.innerText = Math.round(parseFloat((val.value) * c["USD-RUB"]) * 100000) / 100000;
+            }
+            if (currency1.value == "USD" && currency2.value == "TRY"){
+                result.innerText = Math.round(parseFloat((val.value) * c["USD-TRY"] ) * 100000) / 100000;
+            }
+            if (currency1.value == currency2.value){
+                result.innerText = val.value;
+                if (val.value == ''){
+                    result.innerHTML = '0';
+                }
+            }
+            if (val.value == ''){
+                    result.innerHTML = '0';
+                }
+        }
+        const exchange = document.getElementById('exchange');
+        exchange.addEventListener('click', () => {
+            const temp = currency1.value;
+            currency1.value = currency2.value;
+            currency2.value = temp;
+            val.value = result.innerHTML;
+            v.innerHTML = currency2.value;
+            summ();
+        });
+        val.oninput = function () { // При вводе данных в поле вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+            
+            
+        };
+        currency1.onchange = function () { // При смене первого селекта вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+        };
+        currency2.onchange = function () { // При смене второго селекта вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+
+        }
+    }
+    </script>
+</body>
+</html>

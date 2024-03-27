@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrIstMos - magic money transfer</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+  @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: rgb(229 229 226);
+    --text-color:  rgb(46 44 44);
+  }
+      }
+ /* .geo_txt, .client_txt{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+  }
+  */
+  *{
+    font-family: 'Montserrat', sans-serif;;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+    --background-color: rgb(229 229 226);
+    --text-color: rgb(46 44 44);
+  }
+}
+        html{
+            
+        }
+        body{
+            margin-top: 5vh;
+            font-family: 'IBM Plex Mono', monospace;
+            flex-direction: column;
+            background-color: var(--background-color);
+            
+        }
+        
+        .calc_n_lock{
+            display: flexbox;
+            
+            flex-direction: column;
+            
+            margin-top: 30px;
+        }
+        .calc_panel{
+            border-radius: 20px;
+            background: linear-gradient(rgb(77, 77, 77), black);;
+            height: 750px;
+            width: 360px;
+            color: rgb(255, 255, 255);
+            flex-direction: column;
+            margin: auto;
+        }
+        .calc_pic{
+           margin-top: 25px;
+           width: 250px;
+           margin-left: 10%;
+            
+        }
+        .calc_win{
+            margin-top: 30px;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            width: 300px;
+            margin-left: 30px;
+            border-radius: 20px;
+            text-align: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+            height: 550px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .transition{
+            
+            margin-left: -10px;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            text-align: start; 
+            margin-left: 20px; 
+            margin-bottom: -15px;
+            font-weight: bold;
+            
+            
+            
+        }
+        .Val_in{
+            
+            height: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 250px;
+            border-radius: 5px;
+            border-color:black;
+            border-width: 2px;
+            margin-left: 20px;
+        }
+        .Val_out{
+            
+            height: 50px;
+            margin-left: 20px;
+           
+            width: 250px;
+            border-radius: 5px;
+            border-color:black;
+            border-width: 2px;
+            
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@1&family=Roboto:wght@800&display=swap');
+        .calc_txt{
+            font-family: 'Roboto', sans-serif;
+            font-size: 17px;
+        }
+        .send_button{
+            width: 250px;
+        }
+        .calc_pic_mmt{
+            width: 110px;
+            position:absolute;
+            right: 0;
+            margin-right: 60px;
+            margin-top: 30px;
+            
+        }
+        
+        .nav{
+            flex-direction: row;
+        }
+        .t_icon{
+            width:23px
+        }
+        .t_num{
+            width: 180px;
+            margin-bottom: 5px;
+        }
+        .logo{
+            width:110px;
+        }
+        .logo_t{
+            width: 80px;
+        }
+        .line{
+            width: 40px;
+            margin-bottom: 5px;
+        }
+        .geo_pic{
+            width: 360px;
+            
+            margin-top: 15px;
+        }
+        .arrow{
+            width: 50px;
+            border-radius: 5px;
+            margin-top: -30px;
+            margin-left: 155px;
+        }
+        .geo_txt{
+            width: 200px;
+            margin-left: 85px;
+            margin-top: 10px;
+        }
+        .map{
+            width: 330px;
+            margin-left: 15px;
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+        .point{
+            width: 30px;
+            margin-left: 15px;
+            margin-bottom: -10px;
+        }
+        .adress{
+            padding-bottom: 30px;
+            font-size: 18px;
+            width: 200px;
+            color: var(--text-color);
+        }
+        .line-2{
+            width:50px;
+            margin-left: 140px;
+        }
+        .geo_video{
+            width: 300px;
+            height: 300px;
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+        .client_txt{
+            width: 200px;
+            margin-left: 85px;
+            margin-top: 10px;
+            text-align: center;
+            color: var(--text-color);
+        }
+        .cl_txt_1{
+            margin-top: 150px;
+            margin-left: 50px;
+            position: absolute;
+            width: 250px;
+            color: var(--text-color);
+        }
+        .cl_txt_2{
+            margin-top: 250px;
+            margin-left: 50px;
+            position: absolute;
+            width: 250px;
+            color: var(--text-color);
+        }
+        .team{
+            flex-direction: row;
+            justify-content: space-around;
+            width: 330px;
+            margin:auto
+        }
+        .wkr_1{
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+        .wkr_2{
+            width: 150px;
+            margin-left: 5px;
+        }
+        .wkr_3{
+            width: 80px;
+            margin-left: 5px;
+        }
+        .wkr_desc{
+            width: 150px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .wkr_desc1{
+            width: 150px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .geo{
+            border-radius: 20px;
+            height: auto;
+            width: 360px;
+            flex-direction: column;
+            margin: auto;
+        }
+        .tre{
+            width: 150px;
+        }
+        .commit{
+            margin-top: 20px;
+            width: 150px;
+            margin-left: 20px;
+        }
+        .partner{
+            border-radius: 20px;
+            background: linear-gradient(rgb(77, 77, 77), black);;
+            height: auto;
+            width: 360px;
+            color: rgb(255, 255, 255);
+            flex-direction: column;
+            margin: auto;
+        }
+        .part_pic{
+            width: 287px;
+            margin-top: 20px;
+            margin-left: 35px;
+        }
+        
+        button{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-image:" sync_alt_FILL0_wght400_GRAD0_opsz24.png";
+            background-color: #39f1b2;
+            background-repeat:no-repeat;
+background-size:contain;
+background-position:center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .convert_result{
+            display: inline-block;
+            width: fit-content;
+        }
+        .convert{
+            display: inline-block;
+            width: fit-content;
+        }
+	.chan{
+	    width:100%;
+	    height:100%;
+	}
+
+    </style>
+</head>
+<body>
+    <header class="calc_n_lock" style="margin-left: 2vw; margin-bottom: 5vh;">
+        <div style="display: inline-block; margin-bottom: 10px;">
+        <div style="display: inline-block; width: 67px; height: 25px; background-color: black; border-radius: 5px; color: aliceblue;" >
+        <a href="http://94.103.88.175/m.tyr/"><img src="./RU/b0ecf245-cc2f-49a0-9.png" style="border-radius: 5px; width: 25px; margin-top: 4px; margin-left: 5px; margin-bottom: 0;"></a>
+        <img src="./RU/5aa55b11-ff6a-4c16-8.png" style="border-radius: 5px; width: 25px; margin-top: 4px; margin-left: 2px;">
+        </div>
+    </div>
+    
+    <a href="tel:+905354436509" style="height: 60px; margin-left: 30px;">
+        <img src="./RU/2b61d242-f14c-445a-a.png" class="t_icon">
+        <img src="./RU/a1d1239f-b99f-4327-8.png" alt="" class="t_num">
+    </a>
+        
+        <img src="./RU/e345f660-f161-4f4b-a.png" alt="" class="logo" style="margin-left: 10px;">
+        <img src="./RU/Groupfewf_39.png" class="logo_t" style="margin-left: 10px;">
+        <img src="./RU/8ffe5104-5117-4e7a-9.png" class="line" style="margin-left: 10px;">
+        
+        
+    </div>
+</header>
+    
+    <div class="calc_n_lock">
+        <div class='calc_panel'>
+            <div class="ph_calc">
+                <img src="./RU/26115f7d-d67a-42b5-8 (1).png" class = 'calc_pic'>
+                <img src="./RU/1078505b-d58f-42b6-a.png" class = 'calc_pic_mmt'>
+            </div>
+            <div class="calc_win">
+                <div class = 'transition'>
+                    <a class="tr_txt">Сумма перевода:</a>
+                </div>
+                
+                    <input type="number" id="val" class="Val_out" placeholder=" введите сумму..."/>
+                    <div class = 'transition'>
+                        <a class="tr_txt">Валяюта отправки:</a>
+                    </div>
+                    <select id="cur1" class="Val_out">
+                        <option>USD</option>
+                        <option>TRY</option>
+                        <option>RUB</option>
+                    </select>
+                    
+                        <button id="exchange">
+                            <img class="chan" src="./RU/swap_vert_FILL0_wght400_GRAD0_opsz24.svg">
+                            
+                        </button>
+                        
+                    <div class = 'transition'>
+                        <a class="tr_txt">Валюта получения:</a>
+                    </div>
+                
+                    <select id="cur2" class="Val_out">
+                        <option>RUB</option>
+                        <option>TRY</option>
+                        <option>USD</option>
+                        
+                    </select>
+                
+                
+                <div class="calc_txt" style="text-align: start; margin-left: 25px; margin-bottom: -15px;">Итого вы получите:</div>
+                <div class="convert_result1" style="text-align: start; margin-left: 25px; display:inline-block;">
+                    <div class="convert_result">0</div>
+                    <div class="convert" id="convert_result"></div> 
+                </div>
+                <div class="calc_txt" style="font-weight: bold; margin-bottom: -15px;">Хотите лучший курс?</div>
+                <div class="calc_txt" style="font-size: 15px">Напишите оператору!</div>
+                <div>
+                    <a href="https://t.me/MoneyCrIstmos"><img class="send_button" href="tel:+905354436509" src="./RU/4320e56c-f3ef-49ff-b.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="calc_n_lock">
+        <div class='geo'>
+            <div class="calc_n_lock">
+                <img src="./RU/3ca6485f-7b20-4f43-b.png" class="geo_pic">
+                <img src="./RU/fe796f84-4e4c-4cd7-8.png" class="arrow">
+                <img src="./RU/__.png" class="geo_txt">
+                <a href="https://www.google.com/maps/place/Kemankeş+Karamustafa+Paşa,+CrIstMos,+Halilpaşa+Sk.,+34425+Mаh%2Fİstanbul,+Türkiye/data=!4m2!3m1!1s0x14cab9d8234aef4b:0x8865a2facae68db8?utm_source=mstt_1&entry=gps&lucs=karto&g_ep=CAESCTExLjYwLjcwMxgAIIgnKgVrYXJ0b0ICUlU%3D">
+                    <img src="./RU/2024-02-13_11-32-05.png" class="map" style="border-radius: 25px;">
+                </a>
+                <img src="./RU/826313c5-f53c-4e47-9.png" class="point">
+                <a class="adress">Адрес:</a>
+                <img src="./RU/ed68e408-904b-4358-a.png" class="line-2">
+                <div class="map"><a>Kemankeş, Karamustafa Paşa Mаh. Halilpaşa Sk. No:14 İç  kapı No:19 Beyoğlu/İstanbul</a></div>
+                <img class="geo_video" src="./RU/2024-02-13_11-34-24.png"  style="border-radius: 15px;">   
+                <div class="clients">
+        <img src="./RU/_.png" class="client_txt">
+        <div class="client_txt"><a>Мы решаем и простые, и сложные задачи</a></div>
+        
+        <div class="cl_block1">
+            <img src="./RU/d77c0fdb-2af3-4922-9.png" class="cl_txt_1">
+            <div class="cl_txt_2" style="color: black;">Денежные переводы, организация приема оплат картами РФ</div>
+            <img src="./RU/image.png" class="geo_pic">
+        </div>
+        <div class="cl_block1">
+            <img src="./RU/58d77896-eed6-4489-a.png" class="cl_txt_1">
+            <div class="cl_txt_2" style="color: black;">Факторинг, займы для бизнеса</div>
+            <img src="./RU/image2.png" class="geo_pic">
+        </div>
+        <div class="cl_block1">
+            <img src="./RU/1e837aa1-18fb-4c9b-8.png" class="cl_txt_1">
+            <div class="cl_txt_2" style="color: black;">Денежные переводы, расчеты с поставщиками, представительство в Стамбуле</div>
+            <img src="./RU/image3.png" class="geo_pic">
+        </div>
+        <div class="cl_block1">
+            <img src="./RU/1e837aa1-18fb-4c9b-8.png" class="cl_txt_1">
+            <div class="cl_txt_2" style="color: black;">Денежные переводы, покупки в магазинах, помощь и консультации</div>
+            <img src="./RU/photo.png" class="geo_pic">
+        </div>
+    </div>
+    <img src="./RU/ed5085b0-c480-4a66-9.png" class="geo_txt">
+    <div class="team">
+        <img src="./RU/209ecd6c-a9b9-4226-b.png" class="wkr_1">
+        <img src="./RU/0a47fd89-be63-483b-b.png" class="wkr_1">
+        <img src="./RU/ba137b28-b302-438b-8.png" class="wkr_2">
+        <img src="./RU/b1b86417-1e99-4526-a.png" style="width:70px; margin-left: 10px;">
+        <img src="./RU/2024-01-15_22-11-23.png" class="wkr_desc">
+        <img src="./RU/2024-01-15_22-12-37.png" class="wkr_desc1">
+        <img src="./RU/1c23239e-ec8b-456c-8.png" class="wkr_1">
+        <img src="./RU/85477cae-bbc4-4049-9.png" class="wkr_1">
+        <img src="./RU/fa56cc34-cd65-4813-b.png" class="wkr_3">
+        <img src="./RU/47f70b25-0dcd-4851-a.png" style="width:90px; margin-left: 80px;">
+        <img src="./RU/2024-01-15_22-27-15.png" class="wkr_desc">
+        <img src="./RU/2024-01-15_22-28-51.png" class="wkr_desc1">
+            </div>
+        <img src="./RU/b74c1e68-5b48-45b6-9.png" class="geo_txt">
+        <img src="./RU/2024-02-13_12-05-41.png" onclick="window.location='https://www.youtube.com/watch?v=nqlEb_qFrvw';" class="commit" style="border-radius: 25px;">
+        <img src="./RU/2024-02-19_22-16-45.png" onclick="window.location='https://www.youtube.com/watch?v=UgEGz3NLFUo&embeds_referring_euri=https%3A%2F%2Fcristmos.finance%2F&source_ve_path=Mjg2NjY&feature=emb_logo';" class="commit" style="border-radius: 25px;">
+        <img src="./RU/2024-02-13_12-05-40.png" onclick="window.location='https://www.youtube.com/watch?v=TOjiFWtQU6A';" class="commit" style="border-radius: 25px;">
+        <div class="partner">
+            <img src="./RU/-.png" class="part_pic">
+            <img src="./RU/b360a11a-c7a8-4c84-9.png" class="part_pic">
+            <img src="./RU/79734a29-d859-4244-9.png" class="part_pic">
+            <img src="./RU/fb749bee-18d0-439e-8.png" class="part_pic">
+            <img src="./RU/0bc25309-e856-45ab-8.png" class="part_pic">
+            <img src="./RU/9546c95d-70f8-4de5-8.png" class="part_pic">
+            <img src="./RU/078df818-8dee-43ad-a.png" style="width:120px;" class="part_pic">
+            <div style="line-height: 24px; display: inline-block; max-width: 80px; align-items: center; position: absolute; margin-top: 30px; margin-left: 20px;">Номер лицензии:</div>
+            <img src="./RU/88334fewf00309.png" style="line-height: 24px; display: inline-block; max-width: 100px; align-items: center; position: absolute; margin-top: 90px; margin-left: 20px;">
+            <div class="geo_txt" style="font-size: 13px; margin-left: 50px; min-width: 280px; display:inline-block; line-height: 30px; font-size: 15px;">
+           
+                <li >Мы зарегистрированы в ЦБ Турции</li>
+                <li>Мы официальная компания в Турции - <a href="https://drive.google.com/file/d/1QnZM4w_eUvDbhf7ijO5JbbCC_VlHFyD4/view?usp=sharing" style="color: rgb(57, 202, 149);" target="_blank" rel="noreferrer noopener"><strong><u>наши реквизиты</u></strong></a></li>
+                <li>Мы партнеры русскоговорящего <a href="https://t.me/businesscity_istanbul" style="color: rgb(57, 202, 149);" target="_blank" rel="noreferrer noopener"><strong><u>бизнес-сообщества</u></strong></a></li>
+            </div>
+            <div style="display: inline-block; margin-left: 80px; font-size: 18px; max-width: 200px; margin-top: 50px; text-align: center;"> 
+                <a style="max-width:70px;">Нужна консультация по финансовым вопросам? </a> 
+                <strong>Задайте вопрос специалисту</strong>
+            </div>
+            <a href="https://t.me/MoneyCrIstmos"><img class="send_button" href="tel:+905354436509" src="./RU/4320e56c-f3ef-49ff-b.png "  style="margin-top: 20px; margin-left: 50px; margin-bottom: 20px;""></a>
+            
+        </div>
+        </div>
+    </div>
+    <img src="./RU/e345f660-f161-4f4b-a.png" style="width: 150px; margin-left: 60px; display: inline-block;"> 
+    <img src="./RU/Groupfewf_39.png" style="width: 100px; margin-left: 20px; margin-top: 60px; display: inline-block;">
+    <img src="./RU/2b61d242-f14c-445a-a.png" alt="" class="t_icon" style="margin-left: 60px; margin-top: 20px;">
+    <img src="./RU/a1d1239f-b99f-4327-8.png" alt="" class="t_num" style="margin-left: 20px;">
+    <span style="text-align: center; min-width: 300px; margin-top: 30px; display: inline-block; margin-left: 50px; font-size: 13px;">Политика конфиденциальности</span>
+    <span style="text-align: center; min-width: 300px; margin-top: 10px; display: inline-block; margin-left: 50px; font-size: 13px;">Договор оферты</span>
+    <span style="text-align: center; min-width: 300px; margin-top: 20px; display: inline-block; margin-left: 50px; font-size: 8px; color: rgb(114, 112, 112);">2023 ©. Все права сайта защищены</span>
+    <script>
+        // if (window.innerWidth > 500){
+        //     location.href = 'https://metanit.com/python/fastapi/1.3.php'
+        // }
+        window.onload = function () {
+        let c = {'USD-TRY': '{{ val2 }}', 'USD-RUB': '{{ val1 }}', 'TRY-USD': '{{ val3 }}', 'TRY-RUB': '{{ val4 }}', 'RUB-TRY': '{{ val5 }}', 'RUB-USD': '{{ val6 }}'}; // Устанавливаем курс валют
+    
+        let val = document.getElementById('val'); // Получаем элемент ввода данных
+        let currency1 = document.getElementById('cur1'); // Получаем первый селект
+        let currency2 = document.getElementById('cur2'); // Получаем второй селект
+        let result = document.getElementsByClassName('convert_result')[0]; // Получаем поле куда будем писать результат
+        let but = document.getElementById('myspan');
+        let v = document.getElementById('convert_result')
+        v.innerHTML = currency2.value;
+        function summ() { // Делаем функцию
+            
+            if (currency1.value == "RUB" && currency2.value == "TRY"){
+                result.innerText = Math.round(parseFloat((val.value) * c['RUB-TRY']) * 100000) / 100000;
+            }
+            if (currency1.value == 'RUB' && currency2.value == 'USD'){
+                result.innerText = Math.round(parseFloat((val.value) * c['RUB-USD']) * 100000) / 100000 ;
+            }
+            if (currency1.value == "TRY" && currency2.value == "RUB"){
+                result.innerText = Math.round(parseFloat((val.value) * c["TRY-RUB"] ) * 100000) / 100000;
+            }
+            if (currency1.value == "TRY" && currency2.value == "USD"){
+                result.innerText = Math.round(parseFloat((val.value) * c["TRY-USD"]) * 100000) / 100000 ;
+            }
+            if (currency1.value == "USD" && currency2.value == "RUB"){
+                result.innerText = Math.round(parseFloat((val.value) * c["USD-RUB"]) * 100000) / 100000;
+            }
+            if (currency1.value == "USD" && currency2.value == "TRY"){
+                result.innerText = Math.round(parseFloat((val.value) * c["USD-TRY"] ) * 100000) / 100000;
+            }
+            if (currency1.value == currency2.value){
+                result.innerText = val.value;
+                if (val.value == ''){
+                    result.innerHTML = '0';
+                }
+            }
+            if (val.value == ''){
+                    result.innerHTML = '0';
+                }
+        }
+        const exchange = document.getElementById('exchange');
+        exchange.addEventListener('click', () => {
+            const temp = currency1.value;
+            currency1.value = currency2.value;
+            currency2.value = temp;
+            val.value = result.innerHTML;
+            v.innerHTML = currency2.value;
+            summ();
+        });
+        val.oninput = function () { // При вводе данных в поле вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+            
+            
+        };
+        currency1.onchange = function () { // При смене первого селекта вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+        };
+        currency2.onchange = function () { // При смене второго селекта вызываем функцию.
+            summ();
+            v.innerHTML = currency2.value;
+
+        }
+    }
+    </script>
+</body>
+</html>
